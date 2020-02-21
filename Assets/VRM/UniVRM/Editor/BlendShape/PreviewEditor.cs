@@ -95,12 +95,12 @@ namespace VRM
             }
 
             var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
-            // search prefab if nothing
+            // retrieve prefab from blend shape clip
             if (prefab == null && 0 < (target as BlendShapeAvatar).Clips.Count)
             {
                 prefab = (target as BlendShapeAvatar).Clips[0].Prefab;
             }
-            // once more, with string-based method
+            // still nothing, search prefab with string-based method
             if (prefab == null)
             {
                 var parent = UniGLTF.UnityPath.FromUnityPath(assetPath).Parent;
